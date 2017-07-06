@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * desc
+ * DateConvertUtil 时间转换
  *
  * @author leihz
  * @date 2017/7/5 15:35

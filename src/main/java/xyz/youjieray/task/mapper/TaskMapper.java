@@ -1,6 +1,5 @@
 package xyz.youjieray.task.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
 import xyz.youjieray.model.TaskModel;
 
 import java.util.HashMap;
