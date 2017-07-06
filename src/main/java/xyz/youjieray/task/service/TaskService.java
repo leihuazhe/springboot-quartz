@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.youjieray.model.TaskModel;
+import xyz.youjieray.quartz.SchedulerManager;
 import xyz.youjieray.task.mapper.TaskMapper;
 
 import java.util.HashMap;
@@ -23,6 +24,9 @@ public class TaskService {
 
     @Autowired
     private TaskMapper taskMapper;
+    @Autowired
+    SchedulerManager schedulerManager;
+
 
     public List<TaskModel> getTaskList() {
         return taskMapper.getTaskList();
@@ -31,4 +35,6 @@ public class TaskService {
     public List<TaskModel> getTaskListByParam(HashMap paramMap) {
         return taskMapper.getTaskListByParam(paramMap);
     }
+
+    public List<TaskModel> getAllJobDetail(){return schedulerManager.getAllJobDetail();}
 }

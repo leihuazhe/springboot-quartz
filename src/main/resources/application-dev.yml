@@ -18,7 +18,3 @@ spring:
 server:
   port: 9000
   context-path: /
-#mybatis:
-  #type-aliases-package: xyz.youjieray.task.mapper
-#mybatis:
- # mapper-locations: classpath*:xyz/youjieray/task/mapper/*.xml
