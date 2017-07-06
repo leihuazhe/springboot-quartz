@@ -6,7 +6,13 @@ package xyz.common;
  * @author leihz
  * @date 2017/7/6 13:23
  */
-public enum Constans {
+public class Constans{
+    public static long TASK_COUNT = 1L;
+
+    public static String QUARTZ_TEST = "TEST";
+}
+
+        /*public enum Constans {
     QUARTZ_TEST(2,"test"),
     QUARTZ_LOCAL(0,"local"),
     QUARTZ_PROD(1,"prod");
@@ -27,4 +33,5 @@ public enum Constans {
         }
         return null;
     }
-}
+}*/
+

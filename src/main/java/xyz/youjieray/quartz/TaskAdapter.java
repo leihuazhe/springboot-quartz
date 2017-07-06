@@ -3,6 +3,7 @@ package xyz.youjieray.quartz;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import xyz.common.Constans;
 import xyz.youjieray.model.TaskModel;
 
 import java.lang.reflect.InvocationTargetException;
@@ -20,7 +21,7 @@ public class TaskAdapter implements InterruptableJob{
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
-        TaskModel taskModel = (TaskModel) jobDataMap.get("1");
+        TaskModel taskModel = (TaskModel) jobDataMap.get(Constans.QUARTZ_TEST);
 
         Object executeObj =  taskModel.getTargetObject();
         String tarteMethod = taskModel.getTaskMethod();

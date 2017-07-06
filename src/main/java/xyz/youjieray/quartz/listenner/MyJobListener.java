@@ -7,8 +7,9 @@ import org.quartz.JobListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import xyz.common.Constans;
 import xyz.youjieray.model.TaskModel;
-import xyz.youjieray.utils.DateConvertUtil;
+import xyz.common.utils.DateConvertUtil;
 
 import java.util.Date;
 
@@ -37,7 +38,7 @@ public class MyJobListener implements JobListener {
     @Override
     public void jobToBeExecuted(JobExecutionContext context) {
         JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
-        TaskModel taskModel = (TaskModel) jobDataMap.get("1");
+        TaskModel taskModel = (TaskModel) jobDataMap.get(Constans.QUARTZ_TEST);
 
         if (logger.isInfoEnabled()) {
             logger.info("jobToBeExecuted --> 任务执行之前执行：{}.{}", taskModel.getTaskTarget(), taskModel.getTaskMethod());
@@ -55,7 +56,7 @@ public class MyJobListener implements JobListener {
     @Override
     public void jobExecutionVetoed(JobExecutionContext context) {
         JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
-        TaskModel taskScheduled = (TaskModel) jobDataMap.get("1");
+        TaskModel taskScheduled = (TaskModel) jobDataMap.get(Constans.QUARTZ_TEST);
         if (logger.isInfoEnabled()) {
             logger.info("jobExecutionVetoed -->定时任务vetoJobExecution：{}.{}    group[{}]   name[{}]", taskScheduled.getTaskTarget(), taskScheduled.getTaskMethod(), taskScheduled.getTaskGroup(), taskScheduled.getTaskName());
         }
@@ -70,7 +71,7 @@ public class MyJobListener implements JobListener {
     @Override
     public void jobWasExecuted(JobExecutionContext context, JobExecutionException exception) {
         JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
-        TaskModel taskScheduled = (TaskModel) jobDataMap.get("1");
+        TaskModel taskScheduled = (TaskModel) jobDataMap.get(Constans.QUARTZ_TEST);
         if (logger.isInfoEnabled()) {
             logger.info("jobWasExecuted --> 定时任务执行结束：{}.{}    group[{}]   name[{}]", taskScheduled.getTaskTarget(), taskScheduled.getTaskMethod(), taskScheduled.getTaskGroup(), taskScheduled.getTaskName());
         }

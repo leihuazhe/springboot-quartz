@@ -7,8 +7,9 @@ import org.quartz.TriggerListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import xyz.common.Constans;
 import xyz.youjieray.model.TaskModel;
-import xyz.youjieray.utils.DateConvertUtil;
+import xyz.common.utils.DateConvertUtil;
 
 import java.util.Date;
 
@@ -36,7 +37,7 @@ public class MyTriggerListener implements TriggerListener{
     @Override
     public void triggerFired(Trigger trigger, JobExecutionContext context) {
         JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
-        TaskModel taskScheduled = (TaskModel) jobDataMap.get("1");
+        TaskModel taskScheduled = (TaskModel) jobDataMap.get(Constans.QUARTZ_TEST);
         if (logger.isInfoEnabled()) {
             logger.info("triggerFired-->Trigger被激发 它关联的job即将被运行：{}.{}    group[{}]   name[{}]", taskScheduled.getTaskTarget(), taskScheduled.getTaskMethod(), taskScheduled.getTaskGroup(), taskScheduled.getTaskName());
         }
@@ -49,7 +50,7 @@ public class MyTriggerListener implements TriggerListener{
     @Override
     public boolean vetoJobExecution(Trigger trigger, JobExecutionContext context) {
         JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
-        TaskModel taskScheduled = (TaskModel) jobDataMap.get("1");
+        TaskModel taskScheduled = (TaskModel) jobDataMap.get(Constans.QUARTZ_TEST);
         if (logger.isInfoEnabled()) {
             logger.info(" vetoJobExecution--> Trigger被激发 如果返回TRUE 那么任务job会被终止：{}.{}    group[{}]   name[{}]", taskScheduled.getTaskTarget(), taskScheduled.getTaskMethod(), taskScheduled.getTaskGroup(), taskScheduled.getTaskName());
         }
@@ -63,7 +64,7 @@ public class MyTriggerListener implements TriggerListener{
     @Override
     public void triggerMisfired(Trigger trigger) {
         JobDataMap jobDataMap = trigger.getJobDataMap();
-        TaskModel taskScheduled = (TaskModel) jobDataMap.get("1");
+        TaskModel taskScheduled = (TaskModel) jobDataMap.get(Constans.QUARTZ_TEST);
         if (logger.isInfoEnabled()) {
             logger.info("triggerMisfired --> Trigger错过被激发时执行 {}.{}    group[{}]   name[{}]", taskScheduled.getTaskTarget(), taskScheduled.getTaskMethod(), taskScheduled.getTaskGroup(), taskScheduled.getTaskName());
         }
@@ -88,7 +89,7 @@ public class MyTriggerListener implements TriggerListener{
     @Override
     public void triggerComplete(Trigger trigger, JobExecutionContext jobExecutionContext, Trigger.CompletedExecutionInstruction completedExecutionInstruction) {
         JobDataMap jobDataMap = trigger.getJobDataMap();
-        TaskModel taskScheduled = (TaskModel) jobDataMap.get("1");
+        TaskModel taskScheduled = (TaskModel) jobDataMap.get(Constans.QUARTZ_TEST);
         if (logger.isInfoEnabled()) {
             logger.info("triggerComplete --> triggerComplete任务完成时触发  {}.{}    group[{}]   name[{}]", taskScheduled.getTaskTarget(), taskScheduled.getTaskMethod(), taskScheduled.getTaskGroup(), taskScheduled.getTaskName());
         }

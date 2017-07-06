@@ -1,12 +1,12 @@
 package xyz.youjieray;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import xyz.youjieray.model.TaskModel;
 import xyz.youjieray.quartz.SchedulerManager;
 import xyz.youjieray.task.service.TaskService;
+import xyz.common.utils.SpringContextUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +17,8 @@ public class QuartzApplication {
 
 	public static void main(String[] args) throws Exception {
 		ApplicationContext app = SpringApplication.run(QuartzApplication.class, args);
+		/**将spring上下文set到SpringContextUtil中*/
+		SpringContextUtil.setApplicationContext(app);
 
 		SchedulerManager schedulerManager = (SchedulerManager)app.getBean("schedulerManager");
 		TaskService taskService = (TaskService)app.getBean("taskService");

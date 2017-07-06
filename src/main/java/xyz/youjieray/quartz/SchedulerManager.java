@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import xyz.common.Constans;
 import xyz.youjieray.model.TaskModel;
 
 import javax.annotation.PostConstruct;
@@ -87,7 +88,7 @@ public class SchedulerManager {
                         List<? extends Trigger> triggers = scheduler.getTriggersOfJob(jobKey);
                         for (Trigger trigger : triggers) {
                             JobDataMap jobDataMap = trigger.getJobDataMap();
-                            TaskModel taskScheduled = (TaskModel) jobDataMap.get("1");
+                            TaskModel taskScheduled = (TaskModel) jobDataMap.get(Constans.QUARTZ_TEST);
 
                             //  任务状态 0禁用 1启用 2删除
                             Trigger.TriggerState triggerState = scheduler.getTriggerState(trigger.getKey());
@@ -158,7 +159,8 @@ public class SchedulerManager {
 
 
             taskScheduled.setJobClass(TaskAdapter.class.getSimpleName());
-            jobDataMap.put("1", taskScheduled);
+            //todo important this is setting the jobDataMap group
+            jobDataMap.put(Constans.QUARTZ_TEST, taskScheduled);
            //日志 //jobDataMap.put("1" ,getTaskLog(taskScheduled));
 
             JobBuilder jobBuilder = null;

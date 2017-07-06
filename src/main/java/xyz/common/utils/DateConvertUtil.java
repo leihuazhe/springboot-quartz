@@ -1,4 +1,4 @@
-package xyz.youjieray.utils;
+package xyz.common.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;
