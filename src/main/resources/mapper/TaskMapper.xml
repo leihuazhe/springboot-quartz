@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xyz.youjieray.task.mapper.TaskMapper">
+
+    <select id="getTaskList" resultType="xyz.youjieray.model.TaskModel">
+        SELECT * FROM nc_task WHERE task_status = '1'
+    </select>
+
+
+    <select id="getTaskListByParam" parameterType="HashMap" resultType="xyz.youjieray.model.TaskModel">
+        SELECT * FROM nc_task
+        <where>
+            <if test="null != task_status and '' != task_status">
+                task_status = #{task_status}
+            </if>
+            <if test="null != task_type and '' != task_type">
+                AND task_type = #{task_type}
+            </if>
+            <if test="null != task_group and '' != task_group">
+                AND task_group = #{task_group}
+            </if>
+            <if test="null != task_name and '' != task_name">
+                AND task_name = #{task_name}
+            </if>
+            <if test="null != id and '' != id">
+                AND id = #{id}
+            </if>
+        </where>
+    </select>
+</mapper>
