@@ -15,6 +15,8 @@ spring:
     minEvictableIdleTimeMillis: 300000
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+
 server:
   port: 9000
   context-path: /
+

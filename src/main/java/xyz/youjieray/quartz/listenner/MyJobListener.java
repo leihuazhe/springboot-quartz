@@ -8,10 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import xyz.common.Constans;
+import xyz.common.mail.MailSender;
 import xyz.youjieray.model.TaskModel;
 import xyz.common.utils.DateConvertUtil;
 
 import java.util.Date;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * MyJobListener
@@ -23,7 +27,7 @@ import java.util.Date;
 public class MyJobListener implements JobListener {
 
     private  static Logger logger = LoggerFactory.getLogger(MyJobListener.class);
-
+    private static ExecutorService executorService = Executors.newCachedThreadPool();
 
     @Override
     public String getName() {
@@ -78,8 +82,18 @@ public class MyJobListener implements JobListener {
         if (exception != null) {//任务执行出错  发送邮件
             String info = "任务taskGroup[" + taskScheduled.getTaskGroup() + "] , taskName[" + taskScheduled.getTaskName() + "] ,  任务描述[" + taskScheduled.getTaskDesc() + "]   于 "+ DateConvertUtil.generateDateTime(new Date(),DateConvertUtil.DATE_TIME_FORMAT)+" 执行失败 ,\n 失败原因: " + exception.getMessage();
             //log.setTask_desc("jobWasExecuted "+ info); 日志记录
-           // sendEmail(info); email发送
+            sendEmail(info);// email发送
             logger.info(info);
         }
+    }
+
+    public void sendEmail(final String content){
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                MailSender mailSender = new MailSender();
+                mailSender.sendEmail("定时任务测试",content);
+            }
+        });
     }
 }

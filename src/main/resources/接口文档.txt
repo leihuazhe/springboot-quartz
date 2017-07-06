@@ -1,2 +1,4 @@
 #查看任务  队列信息
 http://127.0.0.1/task/detail
+# java 邮件参考
+http://www.cnblogs.com/muliu/p/6017622.html
