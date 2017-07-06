@@ -1,5 +1,6 @@
 package xyz.youjieray.task.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import xyz.youjieray.model.TaskModel;
 
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import java.util.List;
  * @author leihz
  * @date 2017/7/5 17:18
  */
-//@Mapper
+@Mapper
 public interface TaskMapper {
 
      List<TaskModel> getTaskList();
