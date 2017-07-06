@@ -39,7 +39,7 @@ CREATE TABLE `nc_task` (
 
 /*Data for the table `nc_task` */
 
-insert  into `nc_task`(`id`,`task_type`,`task_group`,`task_name`,`task_aliasname`,`task_status`,`task_cron`,`date_type`,`task_desc`,`task_target`,`task_method`,`opt_config`,`datasql`) values (1007,'plan_data','data-gather','planDataTask','planDataTask','1','*/10 * *  * * ? ','current_day','每月计划表任务','xyz.youjieray.plan.PlanDataTask','ncPlanDataTask',NULL,NULL),(9999,'test','data-gather','printTask','printTask','0','0 */1 * * * ? *',NULL,'打印任务信息','com.hxqc.data.gather.core.quartz.TaskExecuteTest','prinltTaskExecuteDetail',NULL,NULL);
+insert  into `nc_task`(`id`,`task_type`,`task_group`,`task_name`,`task_aliasname`,`task_status`,`task_cron`,`date_type`,`task_desc`,`task_target`,`task_method`,`opt_config`,`datasql`) values (33,'plan_data','data-gather','planDataTask1','planDataTask1','1','0 1/7 * * * ? ',NULL,'每7min执行','xyz.youjieray.plan.PlanDataTask','ncPlanDataTask',NULL,NULL),(44,'plan_data','data-gather','planDataTask2','planDataTask2','1','0 0/5 * * * ?',NULL,'每5min执行','xyz.youjieray.plan.PlanDataTask','ncPlanDataTask',NULL,NULL),(1007,'plan_data','data-gather','planDataTask3','planDataTask3','1','0 0/2 * * * ?','current_day','每2min执行','xyz.youjieray.plan.PlanDataTask','ncPlanDataTask',NULL,NULL),(9999,'test','data-gather','printTask','printTask','1','0 0/1 * * * ?',NULL,'打印任务信息','xyz.youjieray.plan.ExcuteTask','prinltTaskExecuteDetail',NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
