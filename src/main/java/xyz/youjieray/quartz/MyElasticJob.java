@@ -10,6 +10,7 @@ import com.dangdang.ddframe.job.api.simple.SimpleJob;
  * @author leihz
  * @date 2017/7/5 10:32
  */
+//todo prepate to do
 public class MyElasticJob implements SimpleJob{
 
     @Override
