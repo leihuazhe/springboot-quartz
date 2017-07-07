@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 /**
- * desc
+ * created by IntelliJ IDEA
  *
  * @author leihz
  * @date 2017/7/5 10:15

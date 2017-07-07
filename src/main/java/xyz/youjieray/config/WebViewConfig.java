@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * desc
+ * created by IntelliJ IDEA
  *
  * @author leihz
  * @date 2017/7/6 13:19

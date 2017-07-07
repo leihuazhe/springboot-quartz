@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
 /**
- * desc
+ * created by IntelliJ IDEA
  *
  * @author leihz
  * @date 2017/7/5 16:54

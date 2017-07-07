@@ -11,6 +11,12 @@ import xyz.common.utils.SpringContextUtil;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * created by IntelliJ IDEA
+ *
+ * @author leihz
+ * @date 2017/7/5 13:51
+ */
 @SpringBootApplication
 //@MapperScan("xyz.youjieray")
 public class QuartzApplication {
@@ -24,7 +30,6 @@ public class QuartzApplication {
 		TaskService taskService = (TaskService)app.getBean("taskService");
 		HashMap<String,Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("task_status", "1");
-		//paramMap.put("task_group", Constants.SYSTEM_TASK_GROUP);
 		List<TaskModel> taskList = taskService.getTaskListByParam(paramMap);
 		for (TaskModel task : taskList) {
 			schedulerManager.createOrUpdateTask(task);

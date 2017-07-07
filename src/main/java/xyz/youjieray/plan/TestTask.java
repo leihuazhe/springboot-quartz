@@ -1,7 +1,7 @@
 package xyz.youjieray.plan;
 
 /**
- * desc
+ * created by IntelliJ IDEA
  *
  * @author leihz
  * @date 2017/7/6 14:59

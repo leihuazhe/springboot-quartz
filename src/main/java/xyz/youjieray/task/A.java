@@ -1,18 +1,10 @@
 package xyz.youjieray.task;
 
 /**
- * desc
+ * created by IntelliJ IDEA
  *
  * @author leihz
- * @date 2017/7/5 17:16
+ * @date 2017-07-07 9:39
  */
 public class A {
-
-    public static void main(String[] args) {
-
-    }
-
-    public void a(){
-
-    }
 }

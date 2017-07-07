@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * MyJobListener
+ * created by IntelliJ IDEA
  *
  * @author leihz
  * @date 2017/7/5 15:06

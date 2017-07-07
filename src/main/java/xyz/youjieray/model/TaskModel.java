@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * desc
+ * created by IntelliJ IDEA
  *
  * @author leihz
  * @date 2017/7/5 15:17

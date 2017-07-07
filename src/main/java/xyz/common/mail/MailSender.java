@@ -6,7 +6,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
 /**
- * MailSender
+ * created by IntelliJ IDEA
  *
  * @author leihz
  * @date 2017/7/6 20:47

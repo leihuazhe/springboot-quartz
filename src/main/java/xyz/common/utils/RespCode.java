@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.HashMap;
 
 /**
- * RespCode
+ * created by IntelliJ IDEA
  *
  * @author leihz
  * @date 2017/7/6 15:33
